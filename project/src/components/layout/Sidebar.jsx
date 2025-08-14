@@ -28,9 +28,9 @@ const Sidebar = ({ isOpen, toggleSidebar, isCollapsed, toggleCollapse }) => {
       )}
       
       {/* Sidebar */}
-      <div className={`h-16 lg:h-screen ${isCollapsed ? 'lg:w-20' : 'lg:w-64'} w-64 bg-gray-900 transform transition-all duration-300 ease-in-out ${
-        isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-      }`}>
+        <div className={`fixed top-0 left-0 z-30 h-16 lg:h-screen ${isCollapsed ? 'lg:w-20' : 'lg:w-64'} w-64 bg-gray-900 transform transition-all duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        }`}>
         <div className="flex items-center justify-between p-6 border-b border-gray-700">
           <div className="flex items-center">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">

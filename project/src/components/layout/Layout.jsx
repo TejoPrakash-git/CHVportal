@@ -15,21 +15,21 @@ const Layout = () => {
     setSidebarCollapsed(!sidebarCollapsed);
   };
   
-  return (
+   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="fixed top-0 w-full z-50 flex">
-        <Sidebar 
-          isOpen={sidebarOpen} 
-          toggleSidebar={toggleSidebar} 
-          isCollapsed={sidebarCollapsed}
-          toggleCollapse={toggleCollapse}
-        />
-        <div className="flex-1">
-          <Navbar toggleSidebar={toggleSidebar} />
-        </div>
-      </div>
+      {/* Sidebar is now a standalone fixed element */}
+      <Sidebar 
+        isOpen={sidebarOpen} 
+        toggleSidebar={toggleSidebar} 
+        isCollapsed={sidebarCollapsed}
+        toggleCollapse={toggleCollapse}
+      />
       
-      <div className={`pt-16 ${sidebarCollapsed ? 'lg:pl-20' : 'lg:pl-64'} w-full transition-all duration-300`}>
+      {/* Main content area, pushed over by the sidebar's width */}
+      <div className={`transition-all duration-300 ${sidebarCollapsed ? 'lg:ml-20' : 'lg:ml-64'}`}>
+        {/* Navbar is now inside the main content flow */}
+        <Navbar toggleSidebar={toggleSidebar} />
+        
         <main className="p-6">
           <Outlet />
         </main>
